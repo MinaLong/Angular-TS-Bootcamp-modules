@@ -1,0 +1,46 @@
+<!-- We can do title and have an @Input() in the app divider component -->
+<!-- <app-divider [title]="'Placeholder Component'"></app-divider> -->
+
+<!-- Maybe a better way to do it is use ng-content -->
+<!-- what we put inside app-divider will be used in ngContent in the add-divider template (html) -->
+<app-divider>Placeholder Component</app-divider>
+<app-placeholder [showHeader]="true" [numOfPlaceholderLines]="5"></app-placeholder>
+
+
+<app-divider>Segment Component</app-divider>
+<app-segment>
+    <!-- Customized app-segment -->
+    <!-- The first custom app-segment we use header tag -->
+    <!-- this is to differentiate from the other app-sengment -->
+    <!-- we can also use other tags such as ul, and other attribute -->
+    <header>
+        <i class="pdf file outline icon"></i>
+        No document is listed for this customer!
+    </header>
+
+    <!-- can also customize app-segment using attributes -->
+    <!-- <div attriHeader>
+        <i class="pdf file outline icon"></i>
+        Please select a document.
+    </div> -->
+
+    <!-- can also customize app-segment using class -->
+    <!-- <div class="icon-header">
+        <i class="pdf file outline icon"></i>
+        Please select a document.
+    </div> -->
+
+    <button class="ui primary button">
+        Add Document
+    </button>
+</app-segment>
+
+<app-segment>
+    <header>
+        <i class="add icon"></i>
+        Add a resource!
+    </header>
+    <button class="ui primary button">
+        Click to Add
+    </button>
+</app-segment>

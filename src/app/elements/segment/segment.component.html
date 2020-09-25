@@ -1,0 +1,24 @@
+<!-- The point of this app-segment component -->
+<!-- is that another engineer can use the template here -->
+<!-- and don't need to worry about the class="ui icon header" config -->
+
+<div class="ui placeholder segment">
+    <div class="ui icon header">
+        <!-- customized, select the ng-content with "header" tag in it -->
+        <ng-content select="header"></ng-content>
+    </div>
+
+    <!-- customized, select the ng-content with "attriHeader" attribute in it -->
+    <!-- <div class="ui icon header">
+        <ng-content select=[attriHeader]></ng-content>
+    </div> -->
+
+    <!-- customized, select the ng-content with class name -->
+    <!-- <div class="ui icon header">
+        <ng-content select=".icon-header"></ng-content>
+    </div> -->
+
+    <!-- customized, without select, the default  -->
+    <ng-content></ng-content>
+
+</div>

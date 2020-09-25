@@ -1,0 +1,6 @@
+/* Hiding empty element: empty ng-content element */
+/* specicially, if a ng-content is empty, do not show the div container */
+
+div.ui.icon.header:empty{
+    display:none;
+}

@@ -1,0 +1,10 @@
+<div class="ui placeholder">
+    <div *ngIf="showHeader" class="image header">
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="paragraph">
+        <!-- appTimes is the custom structural directive defined under ./elements/times.directive.ts -->
+        <div *appTimes="numOfPlaceholderLines" class="line"></div>
+    </div>
+</div>
