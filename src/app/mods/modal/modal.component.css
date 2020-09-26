@@ -1,0 +1,19 @@
+/* :empty looks for component with no child component */
+.actions:empty {
+    display:none;
+}
+
+
+/* these below two work together */
+/* by default hide actions-default element */
+/* however, if we find an element that's actions but is empty, */
+/* and it has a sibling element that has actions.default, */
+/* then apply display block to the actions.default element */
+.actions-default {
+    display:none;
+}
+
+.actions:empty + .actions.default {
+    /* show element */
+    display: block;   
+}

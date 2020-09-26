@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   // Lasy loading. Define here only when path = /elements 
   // we then render the elements module to Angular app module
+  // do not load /elements when first starting the app
   {
     path: 'elements',
     loadChildren: () => import('./elements/elements.module').then(m => m.ElementsModule),
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'views',
     loadChildren: () => import('./views/views.module').then(m => m.ViewsModule),
+  },
+  {
+    path: 'mods',
+    loadChildren: () => import('./mods/mods.module').then(m => m.ModsModule),
   },
   {
     path: '',
