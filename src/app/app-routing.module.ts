@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./mods/mods.module').then(m => m.ModsModule),
   },
   {
+    path: 'search',
+    loadChildren: () => import('./wiki-search/wiki-search.module').then(m => m.WikiSearchModule),
+  },
+  {
     path: '',
     component: HomeComponent,
   },
