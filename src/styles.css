@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* used for /collections, /elements, /home, /mods, /not found, /shared, /views */
 @import 'semantic-ui-css/semantic.css'; 
+
+/* used for /wiki-search */
+/* importing here will cause format collision, so moving to wiki-search component */
+/* @import 'bulma/css/bulma.css'; */
+
+/* used in the wiki-search/page-list-component.html */
+/* styling html class from wikipedia api results */
+.searchmatch {
+    font-weight: bold;
+}

@@ -1,1 +1,14 @@
-<p>search-bar works!</p>
+<div class="box">
+    <!-- when you have an input tag within form tag and users hit enter -->
+    <!-- it will automatically trigger a submit event on the form -->
+    <!-- not an angular function, this is how browser works -->
+    <!-- but we want to avoid the default behavior since it clear out  -->
+    <!-- the content and submit the form, also it refreshes the page -->
+    <form (submit)="onFormSubmit($event)">
+        <!-- we can also update out term value directly in html -->
+        <!-- <input (input)="term = ($event.target.value)" /> -->
+        <input placeholder="Enter Search Term"
+               class="input"
+               (input)="onInput($event.target.value)" />
+    </form>
+</div>

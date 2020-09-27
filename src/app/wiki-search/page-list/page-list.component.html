@@ -1,1 +1,32 @@
-<p>page-list works!</p>
+<table class="table is-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Word Count</th>
+            <th>Snippet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let page of pages">
+            <td>
+                <!-- add a url link for title -->
+                <!-- open link in a new tab: target = blank -->
+                <a target="_blank"
+                   [href]="'https://en.wikipedia.org?curid=' + page.pageid">
+                    {{ page.title }}
+                </a>
+            </td>
+            <td>{{ page.wordcount }}</td>
+            <!-- show everything in page.snippet as html -->
+            <!-- to avoid XSS attack, angular parse content that looks like html and display  -->
+            <!-- them as string like this: -->
+            <!-- <span class="searchmatch">Space</span> is the boundless three-dimensional  -->
+            <!-- extent in which objects and events have relative position and direction.  -->
+            <!-- by setting innerHTML we tell angular to execute the html as is -->
+            <!-- however, angular has extra security check to make sure that -->
+            <!-- there's no javascript code inside the inner html that might  -->
+            <!-- leak our important information externally -->
+            <td [innerHTML]="page.snippet">{{ page.snippet }}</td>
+        </tr>
+    </tbody>
+</table>

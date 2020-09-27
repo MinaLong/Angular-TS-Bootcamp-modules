@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     // ElementsModule, // Import Modules instead of components
     // CollectionsModule,
     AppRoutingModule,
+
+    // angular module to make http request
+    // need to import this module to use HttpClient class in wikipedia service
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

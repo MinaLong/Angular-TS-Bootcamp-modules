@@ -11,7 +11,7 @@ import { PageListComponent } from './page-list/page-list.component';
   declarations: [WikiSearchHomeComponent, SearchBarComponent, PageListComponent],
   imports: [
     CommonModule,
-    WikiSearchRoutingModule
+    WikiSearchRoutingModule,
   ]
 })
 export class WikiSearchModule { }
