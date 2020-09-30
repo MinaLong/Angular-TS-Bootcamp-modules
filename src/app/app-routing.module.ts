@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./wiki-search/wiki-search.module').then(m => m.WikiSearchModule),
   },
   {
+    path: 'photos',
+    loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule),
+  },
+  {
     path: '',
     component: HomeComponent,
   },
