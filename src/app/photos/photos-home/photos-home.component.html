@@ -1,2 +1,8 @@
-<p>photos-home works!</p>
-<button>Get a Photo</button>
+<h1 class="header">
+    Click on the button to get a random photo
+</h1>
+<div>
+    <button (click)="onClick()">Get a Photo</button>
+</div>
+<img *ngIf="imageURL"
+     [src]="imageURL" />

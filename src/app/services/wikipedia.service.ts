@@ -22,6 +22,7 @@ export class WikipediaService {
   baseUrl = 'http://en.wikipedia.org/w/api.php';
 
   // http client dependency injection
+  // do not create a new object
   constructor(private httpClient: HttpClient) { }
 
   public search(term: string) {
