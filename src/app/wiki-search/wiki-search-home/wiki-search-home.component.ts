@@ -28,8 +28,9 @@ export class WikiSearchHomeComponent implements OnInit {
 
   // we know the event coming in would be a string that represents a term
   onTerm(term: string) {
-    this.wikipedia.search(term).subscribe((response: any) => {
-      this.pages = response.query.search;
+    // retrieve an observable
+    this.wikipedia.search(term).subscribe((pages) => {
+      this.pages = pages;
       // console.log(this.pages);
     });
   }

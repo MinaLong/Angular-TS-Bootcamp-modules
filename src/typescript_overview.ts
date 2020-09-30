@@ -1,5 +1,8 @@
 // Section 12: Typescript Overview
 
+import { Observable } from "rxjs";
+import { pluck } from "rxjs/operators"
+
 console.log('hello world');
 
 // 1. 
@@ -154,3 +157,47 @@ numberHolder.value;
 // Function Generics
 // function can also take <T> type 
 
+
+// 11. 
+// applying typescript to rxjs
+const observable = new Observable<number>((observer) => observer.next(1));
+
+// value will be of number type due to ts restrictions
+observable.subscribe((value) => {
+    console.log(value);
+});
+
+// 12. 
+// generics with rxjs
+interface House {
+    year: number;
+    color: string;
+    damanged: boolean;
+    constructor: {
+        name: string,
+        foundYear: number,
+    }
+}
+
+const observable2 = new Observable<House>(
+    // below next(1) will have type error
+    // error: Argument of type 'number' is not assignable to parameter of type 'House'.ts(2345)
+    // (observer) => observer.next(1)
+    (observer) => {
+        observer.next({
+            year: 1990,
+            color: 'red',
+            damanged: false,
+            constructor: {
+                name: 'abc constructor company',
+                foundYear: 1800,
+            },
+        });
+    }).pipe(
+        pluck('constructor', 'name'),
+    );
+
+// ts knows that value would be a string
+observable2.subscribe((value) => {
+    console.log(value);
+});
