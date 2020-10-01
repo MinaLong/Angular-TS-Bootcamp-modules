@@ -4,9 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CollectionsModule } from './collections/collections.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     // angular module to make http request
     // need to import this module to use HttpClient class in service modules
     HttpClientModule,
+
+    // to use reactive forms (two main forms: reactive forms and template forms)
+    // to use template forms we import the 'FormsModule' instead
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

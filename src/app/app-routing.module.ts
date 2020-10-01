@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule),
   },
   {
+    path: 'creditcard',
+    loadChildren: () => import('./creditcard/creditcard.module').then(m => m.CreditcardModule),
+  },
+  {
     path: '',
     component: HomeComponent,
   },

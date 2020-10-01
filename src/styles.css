@@ -3,7 +3,7 @@
 /* used for /collections, /elements, /home, /mods, /not found, /shared, /views */
 @import 'semantic-ui-css/semantic.css'; 
 
-/* used for /wiki-search */
+/* used for /wiki-search, /creditcard */
 /* importing here will cause format collision, so moving to wiki-search component */
 /* @import 'bulma/css/bulma.css'; */
 

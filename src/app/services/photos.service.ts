@@ -13,7 +13,7 @@ interface Photo {
   providedIn: 'root'
 })
 export class PhotosService {
-  // unsplash.com
+  // unsplash.com demo quota limit 50/hour
   // Angular TS project
   apiAccessKey = 'UMaFsgI1cqkptnYtJvudoecyFwE6pU6lz1Iz6LrOucw';
   apiSecretKey = 'SPeTPZ-nlnEbT_B5LLQJeM7thonb9tUV2CYEVdXmtao';
