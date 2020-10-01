@@ -1,0 +1,35 @@
+<div class="field">
+    <label class="label">{{ label }}</label>
+    <div class="control">
+        <input class="input"
+               [formControl]="control"
+               [ngClass]="{ 'is-danger': showErrors() }" />
+    </div>
+    <ng-container *ngIf="showErrors()">
+        <!-- handling all the validation errors -->
+        <div class="help is-danger"
+             *ngIf="control.errors.required">
+            Value is required.
+        </div>
+        <div class="help is-danger"
+             *ngIf="control.errors.minlength">
+            Value entered is length
+            {{ control.errors.minlength.actualLength }},
+            required minimal length is
+            {{ control.errors.minlength.requiredLength }}.
+        </div>
+        <!-- not currently in use in card-form component -->
+        <div class="help is-danger"
+             *ngIf="control.errors.maxlength">
+            Value entered is length
+            {{ control.errors.maxlength.actualLength }},
+            required maximum length is
+            {{ control.errors.maxlength.requiredLength }}.
+        </div>
+        <!-- not currently in use in card-form component -->
+        <div class="help is-danger"
+             *ngIf="control.errors.pattern">
+            Invalid format, please include a space between first and last names.
+        </div>
+    </ng-container>
+</div>

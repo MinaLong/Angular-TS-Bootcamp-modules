@@ -1,6 +1,16 @@
 <form [formGroup]="cardForm">
-    <input formControlName="name" />
+    <!-- pass in the entire control to the form-input component -->
+    <app-form-input label="Name"
+                    [control]="cardForm.controls.name"></app-form-input>
+    <app-form-input label="Credit Card Number"
+                    [control]="cardForm.controls.cardnumber"></app-form-input>
 </form>
 
+<hr>
+
+<!-- for debugging only, print out values and errors -->
 <div>Form Contents: {{ cardForm.value | json }}</div>
 <div>Form is valid: {{ cardForm.valid }}</div>
+<!-- below two are the same at getting form controls -->
+<div>Errors around name: {{ cardForm.controls.name.errors | json }}</div>
+<div>Errors around name: {{ cardForm.get('name').errors | json }}</div>

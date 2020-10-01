@@ -16,10 +16,15 @@ export class CardFormComponent implements OnInit {
     name: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
+      // Validators.maxLength(20),
+      // Validators.pattern(/\s/), // include a space regex
     ]),
+    cardnumber: new FormControl(''),
   });
 
-  constructor() { }
+  constructor() {
+    // console.log(this.cardForm.controls.name);
+  }
 
   ngOnInit(): void {
   }
