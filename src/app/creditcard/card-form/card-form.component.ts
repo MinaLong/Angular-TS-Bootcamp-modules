@@ -7,6 +7,8 @@ import { DateFormControl } from 'src/app/classes/date-form-control';
   templateUrl: './card-form.component.html',
   styleUrls: ['./card-form.component.css']
 })
+
+// example of a reactive form
 export class CardFormComponent implements OnInit {
 
   // create the form group (that has all the form controls)

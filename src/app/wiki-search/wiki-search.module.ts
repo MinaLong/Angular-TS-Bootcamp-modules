@@ -5,6 +5,7 @@ import { WikiSearchRoutingModule } from './wiki-search-routing.module';
 import { WikiSearchHomeComponent } from './wiki-search-home/wiki-search-home.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { PageListComponent } from './page-list/page-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { PageListComponent } from './page-list/page-list.component';
   imports: [
     CommonModule,
     WikiSearchRoutingModule,
+    SharedModule,
   ]
 })
 export class WikiSearchModule { }

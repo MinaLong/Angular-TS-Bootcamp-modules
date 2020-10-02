@@ -1,0 +1,45 @@
+<!-- #emailForm creates a reference to the formgroup angular creates -->
+<form #emailForm="ngForm"
+      (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label class="label">Enter an email</label>
+        <!-- [(ngModel)]="email" is a two-way binding -->
+        <!-- a combination of a property binding [] and event binding () -->
+        <!-- meaning 1. every time "email" changes, update input -->
+        <!-- 2. every time input changes, update "email" property -->
+        <!-- required is a validator -->
+        <!-- pattern is another regex validator -->
+        <!-- #emailControl="ngModel" is a reference that binds emailControl to emailForm.controls.email -->
+        <input class="input"
+               [ngClass]="{ 'is-danger': emailControl.invalid && emailControl.touched}"
+               name="email"
+               [(ngModel)]="email"
+               required
+               type="email"
+               pattern=".+@.+\..+"
+               #emailControl="ngModel" />
+        <!-- below two are the same -->
+        <!-- <ng-container *ngIf="emailForm.controls.email.invalid"> -->
+        <ng-container *ngIf="emailControl.invalid && emailControl.touched">
+            <div class="help is-danger"
+                 *ngIf="emailControl.errors.required">
+                You must enter an email.
+            </div>
+            <div class="help is-danger"
+                 *ngIf="emailControl.errors.pattern">
+                Please enter a valid email.
+            </div>
+        </ng-container>
+    </div>
+    <button class="button is-primary"
+            [disabled]="emailForm.invalid">
+        Submit
+    </button>
+</form>
+
+
+<hr />
+<!-- Below is for debug purpose only -->
+<!-- <div>Is form valid: {{ emailForm.valid }}</div> -->
+<!-- <div>Form values are: {{ emailForm.value | json }}</div> -->
+<!-- <div>Email validation errors: {{ emailForm.controls.email.errors | json }}</div> -->
