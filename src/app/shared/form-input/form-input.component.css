@@ -1,1 +1,5 @@
 @import 'bulma/css/bulma.css';
+
+.field {
+    margin-bottom: 0.75rem;
+}

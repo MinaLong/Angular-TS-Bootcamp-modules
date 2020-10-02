@@ -1,6 +1,9 @@
 <div class="field">
     <label class="label">{{ label }}</label>
     <div class="control">
+        <!-- can use the below mask="xxx" in an input tag -->
+        <!-- I commented out because this templete is for all fields -->
+        <!-- mask="0000-0000-0000-0000" -->
         <input class="input"
                [formControl]="control"
                [ngClass]="{ 'is-danger': showErrors() }" />
@@ -29,7 +32,7 @@
         <!-- not currently in use in card-form component -->
         <div class="help is-danger"
              *ngIf="control.errors.pattern">
-            Invalid format, please include a space between first and last names.
+            Invalid format.
         </div>
     </ng-container>
 </div>

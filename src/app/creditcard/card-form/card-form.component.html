@@ -1,16 +1,50 @@
-<form [formGroup]="cardForm">
-    <!-- pass in the entire control to the form-input component -->
-    <app-form-input label="Name"
-                    [control]="cardForm.controls.name"></app-form-input>
-    <app-form-input label="Credit Card Number"
-                    [control]="cardForm.controls.cardnumber"></app-form-input>
-</form>
+<div class="columns">
+
+    <div class="column">
+        <app-card-image [name]="cardForm.controls.name.value"
+                        [cardNumber]="cardForm.controls.cardnumber.value"
+                        [expiration]="cardForm.controls.expiration.value"></app-card-image>
+    </div>
+
+    <div class="column">
+        <form [formGroup]="cardForm"
+              (ngSubmit)="onSubmit()">
+            <!-- pass in the entire control to the form-input component -->
+            <app-form-input label="Name"
+                            [control]="cardForm.controls.name"></app-form-input>
+            <!-- 'mask' means ngx-mask library to automatically format user input for display -->
+            <app-form-input label="Credit Card Number"
+                            [control]="cardForm.controls.cardnumber"></app-form-input>
+            <div class="columns">
+                <div class="column">
+                    <app-form-input label="Expiration Date (MM/YY)"
+                                    [control]="cardForm.controls.expiration"></app-form-input>
+                </div>
+                <div class="column">
+                    <app-form-input label="Security Code"
+                                    [control]="cardForm.controls.securityCode"></app-form-input>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="button is-primary"
+                        type="submit"
+                        [disabled]="cardForm.invalid">Submit</button>
+                <!-- type="button" means do not default submit the form when clicked -->
+                <button class="button is-warning"
+                        type="button"
+                        (click)="onResetClick()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
 
 <hr>
 
 <!-- for debugging only, print out values and errors -->
-<div>Form Contents: {{ cardForm.value | json }}</div>
-<div>Form is valid: {{ cardForm.valid }}</div>
+<!-- <div>Form Contents: {{ cardForm.value | json }}</div> -->
+<!-- <div>Form is valid: {{ cardForm.valid }}</div> -->
 <!-- below two are the same at getting form controls -->
-<div>Errors around name: {{ cardForm.controls.name.errors | json }}</div>
-<div>Errors around name: {{ cardForm.get('name').errors | json }}</div>
+<!-- <div>Errors around name: {{ cardForm.controls.name.errors | json }}</div> -->
+<!-- <div>Errors around name: {{ cardForm.get('name').errors | json }}</div> -->

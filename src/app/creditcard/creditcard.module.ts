@@ -6,10 +6,10 @@ import { CreditcardHomeComponent } from './creditcard-home/creditcard-home.compo
 import { CardFormComponent } from './card-form/card-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-
+import { CardImageComponent } from './card-image/card-image.component';
 
 @NgModule({
-  declarations: [CreditcardHomeComponent, CardFormComponent],
+  declarations: [CreditcardHomeComponent, CardFormComponent, CardImageComponent],
   imports: [
     CommonModule,
     CreditcardRoutingModule,
