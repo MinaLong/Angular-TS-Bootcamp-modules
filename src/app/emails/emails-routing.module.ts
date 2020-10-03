@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmailsHomeComponent } from './emails-home/emails-home.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EmailsHomeComponent,
-  },
+  // the auth routing module defines the path for signin and signup
 ];
 
 @NgModule({

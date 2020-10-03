@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AnswerHighlightDirective } from './answer-highlight.directive';
 import { TimesDirective } from './times.directive';
+import { EmailInputComponent } from './email-input/email-input.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -15,6 +16,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     FormInputComponent,
     AnswerHighlightDirective,
     TimesDirective,
+    EmailInputComponent,
   ],
   imports: [
     CommonModule,
