@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    font-size: 30px;
+}
+
+.equation {
+    margin-top: 8px;
+    font-size: 30px;
+}
+
+input {
+    font-size: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 12%;
+    text-align: center;
+}
+
+.stats {
+    margin-top: 10px;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* if answer is close then change the color of the input box */
+.closeAnswer {
+    background-color: rgba(255, 235, 60, 0.3);
+}

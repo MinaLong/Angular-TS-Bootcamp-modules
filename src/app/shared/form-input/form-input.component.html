@@ -14,6 +14,7 @@
              *ngIf="control.errors.required">
             Value is required.
         </div>
+
         <div class="help is-danger"
              *ngIf="control.errors.minlength">
             Value entered is length
@@ -21,7 +22,7 @@
             required minimal length is
             {{ control.errors.minlength.requiredLength }}.
         </div>
-        <!-- not currently in use in card-form component -->
+
         <div class="help is-danger"
              *ngIf="control.errors.maxlength">
             Value entered is length
@@ -29,7 +30,7 @@
             required maximum length is
             {{ control.errors.maxlength.requiredLength }}.
         </div>
-        <!-- not currently in use in card-form component -->
+
         <div class="help is-danger"
              *ngIf="control.errors.pattern">
             Invalid format.

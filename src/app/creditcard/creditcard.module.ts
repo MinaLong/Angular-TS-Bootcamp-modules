@@ -8,9 +8,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CardImageComponent } from './card-image/card-image.component';
 import { EmailFormComponent } from './email-form/email-form.component';
+import { MathFormComponent } from './math-form/math-form.component';
 
 @NgModule({
-  declarations: [CreditcardHomeComponent, CardFormComponent, CardImageComponent, EmailFormComponent],
+  declarations: [
+    CreditcardHomeComponent,
+    CardFormComponent,
+    CardImageComponent,
+    EmailFormComponent,
+    MathFormComponent,
+  ],
   imports: [
     CommonModule,
     CreditcardRoutingModule,

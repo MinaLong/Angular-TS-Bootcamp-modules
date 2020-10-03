@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SegmentComponent } from './segment.component';
+import { MathFormComponent } from './math-form.component';
 
-describe('SegmentComponent', () => {
-  let component: SegmentComponent;
-  let fixture: ComponentFixture<SegmentComponent>;
+describe('MathFormComponent', () => {
+  let component: MathFormComponent;
+  let fixture: ComponentFixture<MathFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SegmentComponent]
+      declarations: [ MathFormComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SegmentComponent);
+    fixture = TestBed.createComponent(MathFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DateFormControl } from 'src/app/classes/date-form-control';
+import { DateFormControl } from 'src/app/shared/date-form-control';
 
 @Component({
   selector: 'app-card-form',
