@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./creditcard/creditcard.module').then(m => m.CreditcardModule),
   },
   {
+    path: 'emails',
+    loadChildren: () => import('./emails/emails.module').then(m => m.EmailsModule),
+  },
+  {
     path: '',
     component: HomeComponent,
   },
