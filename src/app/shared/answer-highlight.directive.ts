@@ -5,6 +5,8 @@ import { filter, map } from 'rxjs/operators';
 @Directive({
   selector: '[appAnswerHighlight]'
 })
+
+// used in creditcard/math-form component
 export class AnswerHighlightDirective {
 
   // elementRef gets a reference of the html element this directive is used at

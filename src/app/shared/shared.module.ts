@@ -31,6 +31,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     FormInputComponent,
     TimesDirective, // have to declare and export directive in module
     AnswerHighlightDirective,
+    EmailInputComponent,
   ],
 })
 export class SharedModule { }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, Validator } from '@angular/forms';
 
+// used in emails/signup component
+
 // validator class that checks if password equals passwordConfirmation
 // validation on formgroup instead of form control
 

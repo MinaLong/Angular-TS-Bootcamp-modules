@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PasswordValidator } from '../validators/password-validator';
-import { UsernameValidator } from '../validators/username-validator';
+import { PasswordValidator } from '../../../shared/password-validator';
+import { UsernameValidator } from '../../../shared/username-validator';
 
 @Component({
   selector: 'app-signup',
@@ -44,6 +44,13 @@ export class SignupComponent implements OnInit {
     private usernameValidator: UsernameValidator) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    if (this.authForm.invalid) {
+      return;
+    }
+    console.log(this.authForm.value);
   }
 
 }

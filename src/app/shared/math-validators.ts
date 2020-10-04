@@ -1,5 +1,6 @@
 import { AbstractControl } from '@angular/forms';
 
+// used in creditcard/math-form component
 export class MathValidators {
 
     // static keyword: only use the function without creating an instance of the class

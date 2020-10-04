@@ -1,1 +1,33 @@
-<p>email-input works!</p>
+<div class="field">
+    <label>{{ label }}</label>
+    <input [formControl]='control'
+           [type]="inputType" />
+
+    <div class="ui pointing red basic label"
+         *ngIf="showErrors()">
+        <p *ngIf="control.errors.required">
+            Field is required.
+        </p>
+        <p *ngIf="control.errors.minlength">
+            Value entered is length
+            {{ control.errors.minlength.actualLength }},
+            required minimal length is
+            {{ control.errors.minlength.requiredLength }}.
+        </p>
+        <p *ngIf="control.errors.maxlength">
+            Value entered is length
+            {{ control.errors.maxlength.actualLength }},
+            required maximum length is
+            {{ control.errors.maxlength.requiredLength }}.
+        </p>
+        <p *ngIf="control.errors.pattern">
+            Invalid pattern. Numbers and letters only.
+        </p>
+        <p *ngIf="control.errors.noUniqueUsername">
+            Username has been taken.
+        </p>
+        <p *ngIf="control.errors.noConnection">
+            No internet connection.
+        </p>
+    </div>
+</div>

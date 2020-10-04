@@ -6,6 +6,8 @@ import { FormControl } from '@angular/forms';
   templateUrl: './form-input.component.html',
   styleUrls: ['./form-input.component.css']
 })
+
+// used in creditcard/card-form component
 export class FormInputComponent implements OnInit {
 
   @Input() control: FormControl;

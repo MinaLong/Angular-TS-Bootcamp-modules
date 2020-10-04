@@ -4,6 +4,8 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
   selector: '[appTimes]'
 })
 
+//used in elements/placeholder component
+
 // Custom structural directives - create a component multiple times
 export class TimesDirective {
 

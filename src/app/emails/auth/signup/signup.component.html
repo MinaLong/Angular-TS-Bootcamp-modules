@@ -1,26 +1,34 @@
 <h3>Create an Account</h3>
 <form class="ui form"
-      [formGroup]="authForm">
-    <div class="field">
-        <label>Username (Note: Asychronous Validator)</label>
-        <input formControlName='username' />
-    </div>
-    <div class="field">
-        <label>Password</label>
-        <input formControlName='password' />
-    </div>
-    <div class="field">
-        <label>Password Confirmation</label>
-        <input formControlName='passwordConfirmation' />
-    </div>
+      [formGroup]="authForm"
+      (ngSubmit)="onSubmit()">
+    <app-email-input [control]="authForm.controls.username"
+                     label="Username (Note: Asychronous Validator)"
+                     inputType="text"></app-email-input>
+    <app-email-input [control]="authForm.controls.password"
+                     label="Password"
+                     inputType="password"></app-email-input>
+    <app-email-input [control]="authForm.controls.passwordConfirmation"
+                     label="Password Confirmation"
+                     inputType="password"></app-email-input>
 
-    <button class="ui submit button primary">
-        Submit
-    </button>
+    <div class="ui red basic label"
+         *ngIf="authForm.controls.password.touched
+         && authForm.controls.passwordConfirmation.touched
+         && authForm.errors">
+        <p *ngIf="authForm.errors.passwordsNoMatch">
+            Passwords do not match.
+        </p>
+    </div>
+    <div>
+        <button class="ui submit button primary">
+            Submit
+        </button>
+    </div>
 </form>
 
 <!-- debug only -->
-{{ authForm.controls.username.errors | json }}
-{{ authForm.controls.password.errors | json }}
-{{ authForm.controls.passwordConfirmation.errors | json }}
-{{ authForm.errors | json }}
+<!-- {{ authForm.controls.username.errors | json }} -->
+<!-- {{ authForm.controls.password.errors | json }} -->
+<!-- {{ authForm.controls.passwordConfirmation.errors | json }} -->
+<!-- {{ authForm.errors | json }} -->
