@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmailAuthService } from 'src/app/services/email-auth.service';
 import { PasswordValidator } from '../../../shared/password-validator';
 import { UsernameValidator } from '../../../shared/username-validator';
 
@@ -41,7 +42,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private passwordValidator: PasswordValidator,
-    private usernameValidator: UsernameValidator) { }
+    private usernameValidator: UsernameValidator,
+    private authService: EmailAuthService) { }
 
   ngOnInit(): void {
   }
@@ -50,7 +52,22 @@ export class SignupComponent implements OnInit {
     if (this.authForm.invalid) {
       return;
     }
-    console.log(this.authForm.value);
-  }
+    // console.log(this.authForm.value);
 
+    this.authService.signup(this.authForm.value).subscribe({
+      next: (response) => {
+        // TODO: signup succeeded, navigate to some other route
+
+      },
+      error: (err) => {
+        // did not successfully make the request
+        if (err.status === 0) {
+          // force some erros to the formgroup
+          this.authForm.setErrors({ noConnection: true });
+        } else {
+          this.authForm.setErrors({ unknownError: true });
+        }
+      },
+    });
+  }
 }

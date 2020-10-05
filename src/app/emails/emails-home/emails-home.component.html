@@ -1,1 +1,38 @@
-<p>emails-home works!</p>
+<div class="ui container">
+    <div class="ui secondary pointing menu">
+        <a routerLink="/"
+           class="item">Angular Email</a>
+
+        <div class="right menu">
+            <ng-container *ngIf="signedIn1">
+                <a routerLink="/emails/inbox"
+                   routerLinkActive="active"
+                   class="ui item">Inbox</a>
+                <a routerLink="/emails/signout"
+                   routerLinkActive="active"
+                   class="ui item">Sign out</a>
+            </ng-container>
+
+            <!-- "!signedIn$ | async" is the async pipe -->
+            <!-- it will update and refresh everytime the subscribed value changes -->
+
+            <!-- [routerLinkActiveOptions]="{ exact: true} means: -->
+            <!-- only at this exact anchor link will it be active -->
+            <ng-container *ngIf="!(signedIn2$ | async)">
+                <a routerLink="/emails"
+                   [routerLinkActiveOptions]="{ exact: true}"
+                   routerLinkActive="active"
+                   class="ui item">Sign in</a>
+                <a routerLink="/emails/signup"
+                   routerLinkActive="active"
+                   class="ui item">Sign up</a>
+            </ng-container>
+
+        </div>
+    </div>
+
+    <!-- must have this <router-outlet> to route sub-modules -->
+    <div class="ui segment">
+        <router-outlet></router-outlet>
+    </div>
+</div>

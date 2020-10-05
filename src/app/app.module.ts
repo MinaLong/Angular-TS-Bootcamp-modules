@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthHttpInterceptor } from './shared/auth-http-interceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     // to use template forms we import the 'FormsModule' instead
     ReactiveFormsModule,
   ],
-  providers: [],
+
+  // providers are the old dependency injection handling
+  // we don't often use providers
+  providers: [
+    // this is set up for project /emails/emails-home/
+    // directly used in shared/auth-http-interceptors
+    // it tells angular that everytime depencency injection request http interceptors
+    // let it use the AuthHttpInterceptor class we define
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

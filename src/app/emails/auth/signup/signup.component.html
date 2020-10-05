@@ -19,6 +19,12 @@
         <p *ngIf="authForm.errors.passwordsNoMatch">
             Passwords do not match.
         </p>
+        <p *ngIf="authForm.errors.noConnection">
+            Signup failed, no internet connection.
+        </p>
+        <p *ngIf="authForm.errors.unknownError">
+            Unknown errors. Try again.
+        </p>
     </div>
     <div>
         <button class="ui submit button primary">

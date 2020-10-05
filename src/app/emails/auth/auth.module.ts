@@ -7,12 +7,14 @@ import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SignoutComponent } from './signout/signout.component';
 
 // AuthModule is a submodule of the EmailModule
 @NgModule({
   declarations: [
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    SignoutComponent
   ],
   imports: [
     CommonModule,
