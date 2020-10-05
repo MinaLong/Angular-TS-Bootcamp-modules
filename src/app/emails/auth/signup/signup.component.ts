@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmailAuthService } from 'src/app/services/email-auth.service';
 import { PasswordValidator } from '../../../shared/password-validator';
 import { UsernameValidator } from '../../../shared/username-validator';
@@ -43,7 +44,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private passwordValidator: PasswordValidator,
     private usernameValidator: UsernameValidator,
-    private authService: EmailAuthService) { }
+    private authService: EmailAuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -56,8 +58,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.authForm.value).subscribe({
       next: (response) => {
-        // TODO: signup succeeded, navigate to some other route
-
+        this.router.navigateByUrl('/emails/inbox');
       },
       error: (err) => {
         // did not successfully make the request

@@ -83,6 +83,17 @@ export class EmailAuthService {
         })
       );
   }
+
+  // sign in a user
+  signin(credentials: SigninCredentials) {
+    return this.http.post<SigninResponse>(`${this.rootUrl}/signin`, credentials)
+      .pipe(
+        // if signin failed request will emit an error and will bypass tap
+        tap(() => {
+          this.signedIn$.next(true);
+        })
+      );
+  }
 }
 
 interface uniqueUsernameResponse {
@@ -101,5 +112,14 @@ interface SignupResponse {
 
 interface SignedinResponse {
   authenticated: boolean,
+  username: string,
+}
+
+interface SigninCredentials {
+  username: string,
+  password: string,
+}
+
+interface SigninResponse {
   username: string,
 }
