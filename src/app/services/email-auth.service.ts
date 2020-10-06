@@ -27,7 +27,7 @@ export class EmailAuthService {
   // 1) has a default value
   // 2) when new component subscribe and event was emitted before it subscribes,
   // it will emit the latest value to the newly subscribed component immediately
-  signedIn$ = new BehaviorSubject(false);
+  signedIn$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
 

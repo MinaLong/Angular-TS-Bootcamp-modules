@@ -1,10 +1,11 @@
 <div class="ui container">
     <div class="ui secondary pointing menu">
-        <a routerLink="/"
+        <a routerLink="/emails"
            class="item">Angular Email</a>
 
         <div class="right menu">
-            <ng-container *ngIf="signedIn1">
+            <!-- <ng-container *ngIf="signedIn1"> -->
+            <ng-container *ngIf="(signedIn2$ | async)">
                 <a routerLink="/emails/inbox"
                    routerLinkActive="active"
                    class="ui item">Inbox</a>
@@ -19,8 +20,9 @@
             <!-- [routerLinkActiveOptions]="{ exact: true} means: -->
             <!-- only at this exact anchor link will it be active -->
             <ng-container *ngIf="!(signedIn2$ | async)">
+                <!-- <ng-container *ngIf="!signedIn1"> -->
                 <a routerLink="/emails"
-                   [routerLinkActiveOptions]="{ exact: true}"
+                   [routerLinkActiveOptions]="{ exact: true }"
                    routerLinkActive="active"
                    class="ui item">Sign in</a>
                 <a routerLink="/emails/signup"

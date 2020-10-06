@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { InboxHomeComponent } from './inbox-home/inbox-home.component';
 
-// this routing module is not necessary, we define our routing in emails-routing module
+// this routing module is for sub-routing inbox
 const routes: Routes = [
+  {
+    path: '',
+    component: InboxHomeComponent,
+  }
 ];
 
 @NgModule({
