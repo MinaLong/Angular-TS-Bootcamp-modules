@@ -19,6 +19,7 @@ export class EmailsHomeComponent implements OnInit {
   signedIn2$: BehaviorSubject<boolean>;
 
   constructor(private authService: EmailAuthService) {
+    // another way to subscrive to aignedIn$ value changes
     this.signedIn2$ = this.authService.signedIn$;
   }
 

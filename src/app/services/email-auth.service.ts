@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 // used in emails/auth/signup component
 @Injectable({
@@ -70,6 +70,18 @@ export class EmailAuthService {
         // { authenticated } means only extract the authenticated property
         tap(({ authenticated }) => {
           this.signedIn$.next(authenticated);
+        })
+      );
+  }
+
+  // check if a user is signed in, return true or false
+  // used by /shared/auth.guard in order to authenticate the /emails/inbox route
+  checkAuthWithReturn() {
+    return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
+      .pipe(
+        // { authenticated } means only extract the authenticated property
+        map(({ authenticated }) => {
+          return authenticated;
         })
       );
   }

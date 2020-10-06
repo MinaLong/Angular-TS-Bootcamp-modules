@@ -34,7 +34,7 @@ const routes: Routes = [
         // we have to sign in or use the link on the page to get there.
         // potential issue is that we're lazy loading /emails/inbox
         // when we want to visit http://localhost:4200/emails/inbox directly,
-        // the signedIn$ did not emit any values 
+        // the signedIn$ emitted null but not true or false
         path: 'inbox',
         canLoad: [AuthGuard], // restrict the below loadChildren lazy loading
         loadChildren: () => import('./inbox/inbox.module').then(m => m.InboxModule),
