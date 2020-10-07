@@ -63,7 +63,8 @@ export class EmailAuthService {
       );
   }
 
-  // check if a user is signed in
+  // check if a user is signed in, no return value
+  // only update the signedIn$ property
   checkAuth() {
     return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
       .pipe(

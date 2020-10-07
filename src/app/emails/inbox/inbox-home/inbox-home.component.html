@@ -1,1 +1,10 @@
-<p>inbox-home works!</p>
+<div class="ui grid stackable">
+    <div class="five wide column">
+        <app-email-index></app-email-index>
+    </div>
+
+    <div class="eleven wide column">
+        <!-- whether to show EmailPlaceholder component or a specific email (with a url) -->
+        <router-outlet></router-outlet>
+    </div>
+</div>

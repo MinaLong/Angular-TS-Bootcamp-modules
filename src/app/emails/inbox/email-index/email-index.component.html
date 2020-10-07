@@ -1,0 +1,21 @@
+<div class="ui celled list">
+    <div *ngFor="let email of emailsList"
+         class="item">
+
+        <!-- append/give email.id property to current url -->
+        <!-- usually we use routerLink="link", routerLink is an attribute -->
+        <!-- here we use dynamic url, so we need to use property binding syntax -->
+        <!-- so that ="emails.id" can be interpreted as code -->
+        <a [routerLink]="email.id"
+           routerLinkActive="active">
+            <div class="content">
+                <div class="header">
+                    {{ email.subject }}
+                </div>
+                <p>
+                    {{ email.from}}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
