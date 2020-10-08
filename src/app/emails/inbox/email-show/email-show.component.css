@@ -1,0 +1,6 @@
+/* make the reply button show up on the right */
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

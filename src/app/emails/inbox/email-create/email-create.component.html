@@ -7,5 +7,6 @@
 <app-email-modal *ngIf="showModal"
                  (dismiss)="showModal = false">
     <div modalTitle>Create New Email</div>
-    <app-email-form [email]="email"></app-email-form>
+    <app-email-form [email]="email"
+                    (emailSubmit)="onEmailCreateSubmit($event)"></app-email-form>
 </app-email-modal>

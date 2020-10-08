@@ -27,6 +27,11 @@ export class EmailInboxService {
   getEmail(emailId: string) {
     return this.httpClient.get<Email>(`${this.rootUrl}/emails/${emailId}`);
   }
+
+  // send an email
+  sendEmail(email: Email) {
+    return this.httpClient.post<{ status: string }>(`${this.rootUrl}/emails`, email);
+  }
 }
 
 // ListEmail response

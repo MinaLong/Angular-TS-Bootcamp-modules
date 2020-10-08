@@ -51,6 +51,7 @@ export class EmailShowComponent implements OnInit {
     // note: because we have moved our data fetching to resolver, 
     // we don't technically need the below code
     // leaving here just for reference
+
     this.route.params.pipe(
       switchMap(({ id }) => {
         return this.emailService.getEmail(id);

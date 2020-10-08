@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Email } from 'src/app/shared/email-interface';
 
@@ -10,6 +10,7 @@ import { Email } from 'src/app/shared/email-interface';
 export class EmailFormComponent implements OnInit {
 
   @Input() email: Email;
+  @Output() emailSubmit = new EventEmitter();
 
   // cannot initialize since we need to use @Input email
   // to generate form controls
@@ -35,6 +36,15 @@ export class EmailFormComponent implements OnInit {
       ]),
       text: new FormControl(text),
     });
+  }
+
+  onSubmit() {
+    if (this.emailForm.invalid) {
+      return;
+    }
+    // console.log(this.emailForm.value); // will not include 'from' form control, it's disabled
+    // console.log(this.emailForm.getRawValue()); // will include the 'from' form control
+    this.emailSubmit.emit(this.emailForm.value);
   }
 
 }

@@ -8,6 +8,13 @@
             To: <i>{{ email.to }}</i>
         </div>
     </div>
+
+    <!-- we want the email-reply div to be in the email-show component -->
+    <!-- this way we can also access the email information for pre-populate app-email-reply component -->
+    <div>
+        <app-email-reply [emailBeforeReplyEmail]="email"></app-email-reply>
+    </div>
+
 </div>
 <div class="ui divider"></div>
 <!-- Instructor's response has html property so he can show html content with images and formats -->
