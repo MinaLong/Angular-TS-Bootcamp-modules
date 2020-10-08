@@ -1,0 +1,14 @@
+/* the user may or may not something to display as the footer of the modal */
+
+.actions:empty {
+    display: none;
+}
+
+.actions-default {
+    display: none;
+}
+
+/* if .actions:empty and .actions-default are siblings, then display */
+.actions:empty + .actions-default {
+    display: block;
+}

@@ -1,7 +1,7 @@
 // shared interface for the emails project
 
-// GetEmail response
-export interface GetEmailResponse {
+// Define the structure of an email
+export interface Email {
     id: string,
     subject: string,
     text: string,

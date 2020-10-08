@@ -16,3 +16,16 @@ a.active:before {
     font-size: 20px;
     margin-right: 10px;
 }
+
+/* for email-show component email subject or address not running over */
+.content {
+    width: 90%;
+}
+
+/* for email-show component email subject or address not running over */
+.trim {
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}

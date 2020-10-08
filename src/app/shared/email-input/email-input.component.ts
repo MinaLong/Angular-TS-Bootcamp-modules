@@ -12,9 +12,10 @@ export class EmailInputComponent implements OnInit {
 
   @Input() control: FormControl;
   @Input() label: string;
-
-  // if inputType is 'text' then normal, if it's password then we show ****
+  // if inputType is 'text' then normal, if it's password then we show ****, can also be 'email'
   @Input() inputType: string;
+  // property control type to decide if we want text input or text area (for email body)
+  @Input() controlType = 'input';
 
   constructor() { }
 

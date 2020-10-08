@@ -1,0 +1,33 @@
+<!-- the background dark screen -->
+<div (click)="onDismissClick()"
+     class="ui dimmer visible active">
+
+    <!-- stop event bubbling up and trigger click event from going up to parent component-->
+    <!-- by using (click)="$event.stopPropagation()" -->
+    <!-- prevent when user click on the active modal, then trigger event bubbling up -->
+    <!-- to the background dark screen dimmer div and close the modal -->
+    <div (click)="$event.stopPropagation()"
+         class="ui modal visible active">
+
+        <i class="close icon"
+           (click)="onDismissClick()"></i>
+
+        <div class="header">
+            <!-- parent html's modalTitle property will apply here: ng-content -->
+            <ng-content select="[modalTitle]"></ng-content>
+        </div>
+
+        <div class="content">
+            <ng-content></ng-content>
+        </div>
+
+        <div class="actions actions-default">
+            <button class="ui button primary"
+                    (click)="onDismissClick()">OK</button>
+        </div>
+
+        <div class="actions">
+            <ng-content select="[modalFooter]"></ng-content>
+        </div>
+    </div>
+</div>

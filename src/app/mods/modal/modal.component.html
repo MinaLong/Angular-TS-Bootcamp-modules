@@ -4,11 +4,15 @@
 <!-- Instead, a common solution for modal is to put it directly inside the body element -->
 <!-- and show and hide modal as needed -->
 
-<div class="ui dimmer visible active" (click)="onCloseClick()">
+<!-- the background dark screen: dimmered -->
+<div class="ui dimmer visible active"
+     (click)="onCloseClick()">
     <!-- stop event bubbling up and trigger click event from going up to parent component-->
     <!-- by using (click)="$event.stopPropagation()" -->
-    <div (click)="$event.stopPropagation()" class="ui modal visible active">
-        <i class="close icon" (click)="onCloseClick()"></i>
+    <div (click)="$event.stopPropagation()"
+         class="ui modal visible active">
+        <i class="close icon"
+           (click)="onCloseClick()"></i>
         <div class=" header">
             <!-- making modal reusable use ng-content instead -->
             <!-- Modal! -->
@@ -24,7 +28,8 @@
         <!-- if parent supplies a button, then show the parent's button [modalFooter]-->
         <!-- otherwise, show the defaul button OK -->
         <div class="actions actions-default">
-            <button class="ui button" (click)="onCloseClick()">OK</button>
+            <button class="ui button"
+                    (click)="onCloseClick()">OK</button>
         </div>
         <div class="actions">
             <ng-content select="[modalFooter]"></ng-content>

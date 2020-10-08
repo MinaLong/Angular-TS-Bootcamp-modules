@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetEmailResponse } from '../shared/email-interface';
+import { Email } from '../shared/email-interface';
 
 // used in components in emails/inbox
 // username: test109
@@ -25,7 +25,7 @@ export class EmailInboxService {
 
   // get an email given an email id
   getEmail(emailId: string) {
-    return this.httpClient.get<GetEmailResponse>(`${this.rootUrl}/emails/${emailId}`);
+    return this.httpClient.get<Email>(`${this.rootUrl}/emails/${emailId}`);
   }
 }
 

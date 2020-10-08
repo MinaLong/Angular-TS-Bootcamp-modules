@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { GetEmailResponse } from '../shared/email-interface';
+import { Email } from '../shared/email-interface';
 import { EmailInboxService } from './email-inbox.service';
 
 // Email resolver to resolve undefined Email issue in /emails/inbox/email-show component
@@ -11,7 +11,7 @@ import { EmailInboxService } from './email-inbox.service';
 @Injectable({
   providedIn: 'root'
 })
-export class EmailResolverService implements Resolve<GetEmailResponse> {
+export class EmailResolverService implements Resolve<Email> {
 
   constructor(private emailService: EmailInboxService,
     private router: Router) { }

@@ -7,6 +7,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AnswerHighlightDirective } from './answer-highlight.directive';
 import { TimesDirective } from './times.directive';
 import { EmailInputComponent } from './email-input/email-input.component';
+import { EmailModalComponent } from './email-modal/email-modal.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -17,6 +18,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AnswerHighlightDirective,
     TimesDirective,
     EmailInputComponent,
+    EmailModalComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +34,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     TimesDirective, // have to declare and export directive in module
     AnswerHighlightDirective,
     EmailInputComponent,
+    EmailModalComponent,
   ],
 })
 export class SharedModule { }

@@ -10,6 +10,7 @@ import { map, tap } from 'rxjs/operators';
 export class EmailAuthService {
 
   rootUrl = 'https://api.angular-email.com/auth';
+  username = '';
 
   // notes for below signedIn$
   // if the user is currently signed in
@@ -57,8 +58,9 @@ export class EmailAuthService {
     })
       .pipe(
         // if it's error it will skip the tap operators
-        tap(() => {
+        tap((response) => {
           this.signedIn$.next(true);
+          this.username = response.username;
         })
       );
   }
@@ -69,7 +71,8 @@ export class EmailAuthService {
     return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
       .pipe(
         // { authenticated } means only extract the authenticated property
-        tap(({ authenticated }) => {
+        tap(({ authenticated, username }) => {
+          this.username = username;
           this.signedIn$.next(authenticated);
         })
       );
@@ -81,7 +84,8 @@ export class EmailAuthService {
     return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
       .pipe(
         // { authenticated } means only extract the authenticated property
-        map(({ authenticated }) => {
+        map(({ authenticated, username }) => {
+          this.username = username;
           return authenticated;
         })
       );
@@ -102,8 +106,9 @@ export class EmailAuthService {
     return this.http.post<SigninResponse>(`${this.rootUrl}/signin`, credentials)
       .pipe(
         // if signin failed request will emit an error and will bypass tap
-        tap(() => {
+        tap((response) => {
           this.signedIn$.next(true);
+          this.username = response.username;
         })
       );
   }
