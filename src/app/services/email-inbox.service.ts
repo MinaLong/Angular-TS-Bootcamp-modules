@@ -25,12 +25,12 @@ export class EmailInboxService {
 
   // get an email given an email id
   getEmail(emailId: string) {
-    return this.httpClient.get<Email>(`${this.rootUrl}/emails/${emailId}`);
+    return this.httpClient.get<Email>(`${this.rootUrl}/emails/${emailId}`, { withCredentials: true });
   }
 
   // send an email
   sendEmail(email: Email) {
-    return this.httpClient.post<{ status: string }>(`${this.rootUrl}/emails`, email);
+    return this.httpClient.post<{ status: string }>(`${this.rootUrl}/emails`, email, { withCredentials: true });
   }
 }
 

@@ -20,7 +20,8 @@ export class AuthHttpInterceptor implements HttpInterceptor {
         // all this http interceptor is doing is to change the withCredentials to true
         // req.withCredentials = true; doesn't work since angular http request is read only
         const modifiedReq = req.clone({
-            withCredentials: true,
+            // have to disable this since wikipedia service doesn't allow credentials.
+            // withCredentials: true,
         });
         // return next.handle(modifiedReq);
         // the entire pipe statement is not necessary in our real code

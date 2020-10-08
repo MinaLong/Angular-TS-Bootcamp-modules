@@ -35,7 +35,11 @@ export class WikipediaService {
         utf8: '1',
         srsearch: term,
         origin: '*',
-      }
+      },
+      // have to set withCredentials = false here since we have our resolver to automatically 
+      // set withCredentials = true for all services
+      // wikipedia service doesn't allow credentials and would give CORS errors
+      withCredentials: false,
     }).pipe(
       pluck('query', 'search')
     );

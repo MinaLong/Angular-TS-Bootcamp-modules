@@ -39,7 +39,7 @@ export class EmailAuthService {
     // http client will emit observable of an error instead of a reqular response
     return this.http.post<uniqueUsernameResponse>(this.rootUrl + '/username', {
       username: usernameInput,
-    });
+    }, { withCredentials: true });
   }
 
   // call service that sign up an user
@@ -68,7 +68,7 @@ export class EmailAuthService {
   // check if a user is signed in, no return value
   // only update the signedIn$ property
   checkAuth() {
-    return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
+    return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`, { withCredentials: true })
       .pipe(
         // { authenticated } means only extract the authenticated property
         tap(({ authenticated, username }) => {
@@ -81,7 +81,7 @@ export class EmailAuthService {
   // check if a user is signed in, return true or false
   // used by /shared/auth.guard in order to authenticate the /emails/inbox route
   checkAuthWithReturn() {
-    return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`)
+    return this.http.get<SignedinResponse>(`${this.rootUrl}/signedin`, { withCredentials: true })
       .pipe(
         // { authenticated } means only extract the authenticated property
         map(({ authenticated, username }) => {
@@ -93,7 +93,7 @@ export class EmailAuthService {
 
   // sign us out of email app
   signout() {
-    return this.http.post(`${this.rootUrl}/signout`, { body: {} })
+    return this.http.post(`${this.rootUrl}/signout`, { body: {} }, { withCredentials: true })
       .pipe(
         tap(() => {
           this.signedIn$.next(false);
@@ -103,7 +103,7 @@ export class EmailAuthService {
 
   // sign in a user
   signin(credentials: SigninCredentials) {
-    return this.http.post<SigninResponse>(`${this.rootUrl}/signin`, credentials)
+    return this.http.post<SigninResponse>(`${this.rootUrl}/signin`, credentials, { withCredentials: true })
       .pipe(
         // if signin failed request will emit an error and will bypass tap
         tap((response) => {
